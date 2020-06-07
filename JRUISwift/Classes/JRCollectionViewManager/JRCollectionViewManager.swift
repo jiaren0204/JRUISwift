@@ -44,7 +44,8 @@ open class JRCollectionViewManager: NSObject {
         
         if let headerClasses = headerClasses {
             for headerClass in headerClasses {
-                registerHeadFooter(headerClass, kind: UICollectionView.elementKindSectionHeader)
+                registerHeadFooter(headerClass, kind:
+                    UICollectionView.elementKindSectionHeader)
             }
         }
         

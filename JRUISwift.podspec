@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/jiaren0204/JRUISwift.git", :tag => "0.0.1" }
 
+  s.swift_version = '5.0'
+
   s.framework  = "UIKit", "Foundation"
 
   # s.source_files  = "JRUIOC/Classes/*.h"
@@ -28,6 +30,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'JRCollectionViewManager' do |ss|
+    ss.dependency 'JRUISwift/Utils'
+    
     ss.source_files = 'JRUISwift/Classes/JRCollectionViewManager/**/*.swift'
   end
   
