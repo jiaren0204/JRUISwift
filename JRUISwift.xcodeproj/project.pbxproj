@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA29709B248CC717003F9D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709A248CC717003F9D2B /* AppDelegate.swift */; };
+		DA29709D248CC717003F9D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709C248CC717003F9D2B /* SceneDelegate.swift */; };
+		DA29709F248CC717003F9D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709E248CC717003F9D2B /* ViewController.swift */; };
+		DA2970A2248CC717003F9D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2970A0248CC717003F9D2B /* Main.storyboard */; };
+		DA2970A4248CC71D003F9D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2970A3248CC71D003F9D2B /* Assets.xcassets */; };
+		DA2970A7248CC71D003F9D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2970A5248CC71D003F9D2B /* LaunchScreen.storyboard */; };
+		DA2970CE248CC806003F9D2B /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970BB248CC806003F9D2B /* UIView+Util.swift */; };
+		DA2970E9248CCAD6003F9D2B /* JRPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970D7248CCAD6003F9D2B /* JRPopUpView.swift */; };
+		DA2970EA248CCAD6003F9D2B /* JRPopupViewBaseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970D8248CCAD6003F9D2B /* JRPopupViewBaseAnimator.swift */; };
+		DA2970F2248CCAD6003F9D2B /* JRTableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E3248CCAD6003F9D2B /* JRTableViewSection.swift */; };
+		DA2970F3248CCAD6003F9D2B /* JRTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E4248CCAD6003F9D2B /* JRTableViewCell.swift */; };
+		DA2970F4248CCAD6003F9D2B /* JRTableViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E5248CCAD6003F9D2B /* JRTableViewItem.swift */; };
+		DA2970F5248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E6248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift */; };
+		DA2970F6248CCAD6003F9D2B /* JRTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E7248CCAD6003F9D2B /* JRTableViewManager.swift */; };
+		DA2970F7248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */; };
+		DA297101248CCD77003F9D2B /* JRCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */; };
+		DA297102248CCD77003F9D2B /* JRCustomSizeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FB248CCD77003F9D2B /* JRCustomSizeLayout.swift */; };
+		DA297103248CCD77003F9D2B /* JRCollectionViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */; };
+		DA297104248CCD77003F9D2B /* JRCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */; };
+		DA297105248CCD77003F9D2B /* JRCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */; };
+		DA297106248CCD77003F9D2B /* JRCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */; };
+		DA297107248CCD77003F9D2B /* JRCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA297100248CCD77003F9D2B /* JRCollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA297097248CC717003F9D2B /* JRUISwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JRUISwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA29709A248CC717003F9D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA29709C248CC717003F9D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DA29709E248CC717003F9D2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA2970A1248CC717003F9D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA2970A3248CC71D003F9D2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA2970A6248CC71D003F9D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA2970A8248CC71D003F9D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2970BB248CC806003F9D2B /* UIView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
+		DA2970D7248CCAD6003F9D2B /* JRPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRPopUpView.swift; sourceTree = "<group>"; };
+		DA2970D8248CCAD6003F9D2B /* JRPopupViewBaseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRPopupViewBaseAnimator.swift; sourceTree = "<group>"; };
+		DA2970E3248CCAD6003F9D2B /* JRTableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewSection.swift; sourceTree = "<group>"; };
+		DA2970E4248CCAD6003F9D2B /* JRTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewCell.swift; sourceTree = "<group>"; };
+		DA2970E5248CCAD6003F9D2B /* JRTableViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewItem.swift; sourceTree = "<group>"; };
+		DA2970E6248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewHeaderFooterItem.swift; sourceTree = "<group>"; };
+		DA2970E7248CCAD6003F9D2B /* JRTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewManager.swift; sourceTree = "<group>"; };
+		DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionReusableView.swift; sourceTree = "<group>"; };
+		DA2970FB248CCD77003F9D2B /* JRCustomSizeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCustomSizeLayout.swift; sourceTree = "<group>"; };
+		DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewEvent.swift; sourceTree = "<group>"; };
+		DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewManager.swift; sourceTree = "<group>"; };
+		DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewItem.swift; sourceTree = "<group>"; };
+		DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewSection.swift; sourceTree = "<group>"; };
+		DA297100248CCD77003F9D2B /* JRCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA297094248CC717003F9D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA29708E248CC717003F9D2B = {
+			isa = PBXGroup;
+			children = (
+				DA297099248CC717003F9D2B /* JRUISwift */,
+				DA297098248CC717003F9D2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA297098248CC717003F9D2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA297097248CC717003F9D2B /* JRUISwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA297099248CC717003F9D2B /* JRUISwift */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970AE248CC806003F9D2B /* Classes */,
+				DA29709A248CC717003F9D2B /* AppDelegate.swift */,
+				DA29709C248CC717003F9D2B /* SceneDelegate.swift */,
+				DA29709E248CC717003F9D2B /* ViewController.swift */,
+				DA2970A0248CC717003F9D2B /* Main.storyboard */,
+				DA2970A3248CC71D003F9D2B /* Assets.xcassets */,
+				DA2970A5248CC71D003F9D2B /* LaunchScreen.storyboard */,
+				DA2970A8248CC71D003F9D2B /* Info.plist */,
+			);
+			path = JRUISwift;
+			sourceTree = "<group>";
+		};
+		DA2970AE248CC806003F9D2B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970E2248CCAD6003F9D2B /* JRTableViewManager */,
+				DA2970F8248CCD77003F9D2B /* JRCollectionViewManager */,
+				DA2970D6248CCAD6003F9D2B /* JRPopUpView */,
+				DA2970BA248CC806003F9D2B /* Utils */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DA2970BA248CC806003F9D2B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970BB248CC806003F9D2B /* UIView+Util.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DA2970D6248CCAD6003F9D2B /* JRPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970D7248CCAD6003F9D2B /* JRPopUpView.swift */,
+				DA2970D8248CCAD6003F9D2B /* JRPopupViewBaseAnimator.swift */,
+			);
+			path = JRPopUpView;
+			sourceTree = "<group>";
+		};
+		DA2970E2248CCAD6003F9D2B /* JRTableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970E4248CCAD6003F9D2B /* JRTableViewCell.swift */,
+				DA2970E6248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift */,
+				DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */,
+				DA2970E5248CCAD6003F9D2B /* JRTableViewItem.swift */,
+				DA2970E7248CCAD6003F9D2B /* JRTableViewManager.swift */,
+				DA2970E3248CCAD6003F9D2B /* JRTableViewSection.swift */,
+			);
+			path = JRTableViewManager;
+			sourceTree = "<group>";
+		};
+		DA2970F8248CCD77003F9D2B /* JRCollectionViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */,
+				DA297100248CCD77003F9D2B /* JRCollectionViewCell.swift */,
+				DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */,
+				DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */,
+				DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */,
+				DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */,
+				DA2970FA248CCD77003F9D2B /* Layout */,
+			);
+			path = JRCollectionViewManager;
+			sourceTree = "<group>";
+		};
+		DA2970FA248CCD77003F9D2B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				DA2970FB248CCD77003F9D2B /* JRCustomSizeLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA297096248CC717003F9D2B /* JRUISwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2970AB248CC71D003F9D2B /* Build configuration list for PBXNativeTarget "JRUISwift" */;
+			buildPhases = (
+				DA297093248CC717003F9D2B /* Sources */,
+				DA297094248CC717003F9D2B /* Frameworks */,
+				DA297095248CC717003F9D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JRUISwift;
+			productName = JRUISwift;
+			productReference = DA297097248CC717003F9D2B /* JRUISwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA29708F248CC717003F9D2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "梁嘉仁";
+				TargetAttributes = {
+					DA297096248CC717003F9D2B = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = DA297092248CC717003F9D2B /* Build configuration list for PBXProject "JRUISwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA29708E248CC717003F9D2B;
+			productRefGroup = DA297098248CC717003F9D2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA297096248CC717003F9D2B /* JRUISwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA297095248CC717003F9D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2970A7248CC71D003F9D2B /* LaunchScreen.storyboard in Resources */,
+				DA2970A4248CC71D003F9D2B /* Assets.xcassets in Resources */,
+				DA2970A2248CC717003F9D2B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA297093248CC717003F9D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA29709F248CC717003F9D2B /* ViewController.swift in Sources */,
+				DA297102248CCD77003F9D2B /* JRCustomSizeLayout.swift in Sources */,
+				DA2970F2248CCAD6003F9D2B /* JRTableViewSection.swift in Sources */,
+				DA2970EA248CCAD6003F9D2B /* JRPopupViewBaseAnimator.swift in Sources */,
+				DA297106248CCD77003F9D2B /* JRCollectionViewSection.swift in Sources */,
+				DA297105248CCD77003F9D2B /* JRCollectionViewItem.swift in Sources */,
+				DA29709B248CC717003F9D2B /* AppDelegate.swift in Sources */,
+				DA2970F7248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift in Sources */,
+				DA297104248CCD77003F9D2B /* JRCollectionViewManager.swift in Sources */,
+				DA2970F5248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift in Sources */,
+				DA2970F6248CCAD6003F9D2B /* JRTableViewManager.swift in Sources */,
+				DA297101248CCD77003F9D2B /* JRCollectionReusableView.swift in Sources */,
+				DA29709D248CC717003F9D2B /* SceneDelegate.swift in Sources */,
+				DA2970F3248CCAD6003F9D2B /* JRTableViewCell.swift in Sources */,
+				DA2970CE248CC806003F9D2B /* UIView+Util.swift in Sources */,
+				DA297103248CCD77003F9D2B /* JRCollectionViewEvent.swift in Sources */,
+				DA297107248CCD77003F9D2B /* JRCollectionViewCell.swift in Sources */,
+				DA2970F4248CCAD6003F9D2B /* JRTableViewItem.swift in Sources */,
+				DA2970E9248CCAD6003F9D2B /* JRPopUpView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA2970A0248CC717003F9D2B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2970A1248CC717003F9D2B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA2970A5248CC71D003F9D2B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2970A6248CC71D003F9D2B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA2970A9248CC71D003F9D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA2970AA248CC71D003F9D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA2970AC248CC71D003F9D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9K2Z2LD4T;
+				INFOPLIST_FILE = JRUISwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JRUISwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA2970AD248CC71D003F9D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9K2Z2LD4T;
+				INFOPLIST_FILE = JRUISwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JRUISwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA297092248CC717003F9D2B /* Build configuration list for PBXProject "JRUISwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2970A9248CC71D003F9D2B /* Debug */,
+				DA2970AA248CC71D003F9D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA2970AB248CC71D003F9D2B /* Build configuration list for PBXNativeTarget "JRUISwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2970AC248CC71D003F9D2B /* Debug */,
+				DA2970AD248CC71D003F9D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA29708F248CC717003F9D2B /* Project object */;
+}
