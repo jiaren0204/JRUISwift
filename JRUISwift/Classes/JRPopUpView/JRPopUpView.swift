@@ -40,10 +40,13 @@ public struct JRPopAttributes {
     public var isDismissible = true
     
     // MARK: 点击遮罩颜色
-    public var bgColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+    public var bgColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     
     // MARK: 遵从协议JXPopupViewAnimationProtocol的动画驱动器
     public var animator: JRPopupViewAnimationProtocol = JRPopupViewAlphaAnimator()
+    
+    // MARK: 是否取消之前存在的view
+    public var dismissExistViews = true
 }
 
 public class JRPopUpView: UIView {
@@ -55,40 +58,9 @@ public class JRPopUpView: UIView {
         case customCenter
         case customPoint
     }
-    
-    /*
-     举个例子
-     /////////////////////
-     ///////////////////B/
-     ////-------------////
-     ///|             |///
-     ///|             |///
-     ///|             |///
-     ///|             |///
-     ///|             |///
-     ///|      A      |///
-     ///|             |///
-     ///|             |///
-     ///|             |///
-     ///|_____________|///
-     /////////////////////
-     /////////////////////
 
-     - isDismissible  为YES时，点击区域B可以消失（前提是isPenetrable为false）
-     - isInteractive  为YES时，点击区域A可以触发contentView上的交互操作
-     - isPenetrable   为YES时，将会忽略区域B的交互操作
-     */
-//    public var isDismissible = false {
-//        didSet {
-//            backgroundView.isUserInteractionEnabled = isDismissible
-//        }
-//    }
-//    public var isInteractive = true
-//    public var isPenetrable = false
-    
-    
     private var isAnimating = false
-    private let appearType: JRPopUpAppearType
+    private let attri: JRPopAttributes
     private var statusCallback: ((Bool)->())?
     private var statusWithAnimCallback: ((Bool)->())?
 
@@ -101,26 +73,24 @@ public class JRPopUpView: UIView {
     
     weak var containerView: UIView!
     let contentView: JRPopUpViewConfigProtocol
-    let animator: JRPopupViewAnimationProtocol
     
     public init(contentView: JRPopUpViewConfigProtocol,
-                using: JRPopAttributes) {
-        self.containerView = using.containerView
+                attri: JRPopAttributes) {
+        self.containerView = attri.containerView
         self.contentView = contentView
-        self.animator = using.animator
-        self.appearType = using.appearType
+        self.attri = attri
         
         super.init(frame: containerView.bounds)
         
-        setupConfig(using: using)
+        setupConfig()
         setupFrame()
         
-        animator.setup(contentView: contentView, backgroundView: backgroundView, containerView: containerView)
+        attri.animator.setup(contentView: contentView, backgroundView: backgroundView, containerView: containerView)
     }
     
-    private func setupConfig(using: JRPopAttributes) {
-        backgroundView.isUserInteractionEnabled = using.isDismissible
-        backgroundView.backgroundColor = using.bgColor
+    private func setupConfig() {
+        backgroundView.isUserInteractionEnabled = attri.isDismissible
+        backgroundView.backgroundColor = attri.bgColor
 
         addSubview(backgroundView)
         
@@ -129,7 +99,7 @@ public class JRPopUpView: UIView {
     private func setupFrame() {
         contentView.size = contentView.viewSize
         
-        switch appearType {
+        switch attri.appearType {
         case .top:
             contentView.centerX = containerView.width * 0.5;
             contentView.y = 0;
@@ -153,7 +123,8 @@ public class JRPopUpView: UIView {
         backgroundView.frame = self.bounds
     }
     
-    public static func dismissAllContentView(containerView: UIView, animated: Bool) {
+
+    public class func dismissAllContentView(containerView: UIView, animated: Bool) {
         for view in containerView.subviews {
             if let popUp = view as? JRPopUpView {
                 popUp.dismiss(animated: false, completion: nil)
@@ -161,33 +132,36 @@ public class JRPopUpView: UIView {
         }
     }
     
-    private func checkAddPopUpView(animated: Bool, completion: (()->())?) -> Bool {
+    public class func dismissTargetClass(containerView: UIView, targetClass: AnyClass, animated: Bool) {
+        for view in containerView.subviews {
+            if let popUp = view as? JRPopUpView, popUp.isKind(of: targetClass) {
+                popUp.dismiss(animated: false, completion: nil)
+            }
+        }
+    }
+    
+    private func checkAddPopUpView() {
         
         for view in containerView.subviews {
             if view == self {
                 let popUp = view as! JRPopUpView
                 popUp.dismiss(animated: true, completion: nil)
-                return true
             }
             
             if let popUp = view as? JRPopUpView {
                 popUp.removeFromSuperview()
-                popUp.dismiss(animated: false, completion: nil)
-                display(animated: animated, completion: completion)
+                popUp.dismiss(animated: true, completion: nil)
             }
         }
-        
-        return false
     }
     
     public func display(animated: Bool, completion: (()->())?) {
-        if checkAddPopUpView(animated: animated, completion: completion) {
-            return
+        if attri.dismissExistViews {
+            checkAddPopUpView()
         }
         
-        if isAnimating {
-            return
-        }
+        if isAnimating { return }
+        
         isAnimating = true
         
         addSubview(contentView)
@@ -195,7 +169,7 @@ public class JRPopUpView: UIView {
         
         self.statusCallback?(true)
 
-        animator.display(contentView: contentView, backgroundView: backgroundView, animated: animated, completion: {
+        attri.animator.display(contentView: contentView, backgroundView: backgroundView, animated: animated, completion: {
             completion?()
             self.isAnimating = false
             self.statusWithAnimCallback?(true)
@@ -210,7 +184,7 @@ public class JRPopUpView: UIView {
         isAnimating = true
         self.statusCallback?(false)
         
-        animator.dismiss(contentView: contentView, backgroundView: backgroundView, animated: animated, completion: {
+        attri.animator.dismiss(contentView: contentView, backgroundView: backgroundView, animated: animated, completion: {
             self.contentView.removeFromSuperview()
             self.removeFromSuperview()
             completion?()
@@ -229,6 +203,10 @@ public class JRPopUpView: UIView {
 
     @objc private func backgroundViewClicked() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        contentView.endEditing(true)
     }
     
     public func observeStatusChanged(statusCallback: @escaping ((Bool)->())) {

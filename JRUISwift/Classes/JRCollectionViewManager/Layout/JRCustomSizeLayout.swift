@@ -6,10 +6,17 @@
 //  Copyright © 2020 梁嘉仁. All rights reserved.
 //
 
+/// 使用 JRCustomSizeLayout ,处理数据使用JRCollectionViewManager和JRCollectionViewSection
+/// 不要直接使用collectionView处理
+
 import UIKit
 
 public class JRCustomSizeLayout: UICollectionViewFlowLayout {
-    public weak var manager: JRCollectionViewManager!
+    public weak var manager: JRCollectionViewManager! {
+        didSet {
+            layoutTool.clean()
+        }
+    }
     private var layoutTool: JRCustomSizeLayoutTool
     
     private var collectViewW: CGFloat = 0

@@ -8,11 +8,29 @@
 
 import UIKit
 
+class CC {
+    
+}
+
 class ViewController: UIViewController {
+    
+    private var sysEventDic = [UnsafeMutableRawPointer: String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let c = CC();
+        
+        let key = Unmanaged.passUnretained(c).toOpaque()
+        sysEventDic[key] = "1"
+        
+//        print(Unmanaged.passUnretained(c).toOpaque())
+        
+        sysEventDic.forEach { (key, value) in
+            print(value)
+        }
+        
+
     }
 
 

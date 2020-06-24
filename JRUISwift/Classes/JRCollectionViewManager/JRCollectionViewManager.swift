@@ -8,6 +8,11 @@
 
 import UIKit
 
+public enum JRCollectionEvent {
+    case reloadData
+    case dataDidChanged
+}
+
 open class JRCollectionViewManager: NSObject {
     
     public var sections = [JRCollectionViewSection]()
@@ -15,7 +20,8 @@ open class JRCollectionViewManager: NSObject {
     
     private var cellEventDic = [String: (JRCollectionViewItem, Any?) -> (Void)]()
     private var headerFooterEventDic = [String: (JRCollectionReusableViewItem, Any?) -> (Void)]()
-    
+    private var sysEventDic = [JRCollectionEvent: ()->()]()
+
     private var didEndScrollingCallback: ((JRCollectionViewItem, Int) -> (Void))?
     
     public init(collectionView: UICollectionView,
@@ -80,26 +86,6 @@ open class JRCollectionViewManager: NSObject {
         } else {
             collectionView.register(headerFooterClass, forSupplementaryViewOfKind: kind, withReuseIdentifier: headerFooterName)
         }
-    }
-
-    
-    public func add(section: JRCollectionViewSection) {
-        section.manager = self
-        sections.append(section)
-    }
-    
-    public func remove(section: JRCollectionViewSection) {
-        sections.remove(at: sections.firstIndex(where: { (current) -> Bool in
-            current == section
-        })!)
-    }
-
-    public func removeAllSections() {
-        sections.removeAll()
-    }
-    
-    public func reload() {
-        collectionView.reloadData()
     }
 }
 
@@ -190,6 +176,16 @@ extension JRCollectionViewManager {
         didEndScrollingCallback = callback
     }
     
+    public func registerCollectionEventListener(_ event: JRCollectionEvent, callback: @escaping ()->()) {
+        sysEventDic[event] = callback
+    }
+    
+    private func sysEventCall(_ event: JRCollectionEvent) {
+        sysEventDic.filter { $0.key == event }.forEach { (_, callback) in
+            callback()
+        }
+    }
+    
     // MARK: CELL
     public func registerCellEvent(_ event: String, callback: @escaping (JRCollectionViewItem, Any?)->(Void)) {
         cellEventDic[event] = callback
@@ -206,4 +202,69 @@ extension JRCollectionViewManager {
     public func performHeaderFooterEvent(_ event: String, item: JRCollectionReusableViewItem, msg: Any? = nil) {
         headerFooterEventDic[event]?(item, msg)
     }
+}
+
+// MARK: - 数据处理
+extension JRCollectionViewManager {
+    public func add(section: JRCollectionViewSection) {
+        section.manager = self
+        sysEventCall(.dataDidChanged)
+        sections.append(section)
+    }
+    
+    public func remove(section: JRCollectionViewSection) {
+        sysEventCall(.dataDidChanged)
+        sections.remove(at: sections.firstIndex(where: { (current) -> Bool in
+            current == section
+        })!)
+    }
+
+    public func insertItems(at: [IndexPath]) {
+        sysEventCall(.dataDidChanged)
+        collectionView.insertItems(at: at)
+    }
+    
+    public func moveItem(at: IndexPath, to: IndexPath) {
+        sysEventCall(.dataDidChanged)
+        collectionView.moveItem(at: at, to: to)
+    }
+    
+    public func deleteItems(at: [IndexPath]) {
+        sysEventCall(.dataDidChanged)
+        collectionView.deleteItems(at: at)
+    }
+    
+    public func reloadItems(at: [IndexPath]) {
+        sysEventCall(.dataDidChanged)
+        sysEventCall(.reloadData)
+        collectionView.reloadItems(at: at)
+    }
+    
+    public func insertSections(sections: IndexSet) {
+        sysEventCall(.dataDidChanged)
+        collectionView.insertSections(sections)
+    }
+    
+    public func deleteSections(sections: IndexSet) {
+        sysEventCall(.dataDidChanged)
+        collectionView.deleteSections(sections)
+    }
+    
+    public func reloadSections(sections: IndexSet) {
+        sysEventCall(.dataDidChanged)
+        sysEventCall(.reloadData)
+        collectionView.reloadSections(sections)
+    }
+
+    public func removeAllSections() {
+        sysEventCall(.dataDidChanged)
+        sections.removeAll()
+    }
+
+    public func reload() {
+        sysEventCall(.dataDidChanged)
+        sysEventCall(.reloadData)
+        collectionView.reloadData()
+    }
+
 }

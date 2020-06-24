@@ -24,7 +24,6 @@
 		DA2970F7248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */; };
 		DA297101248CCD77003F9D2B /* JRCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */; };
 		DA297102248CCD77003F9D2B /* JRCustomSizeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FB248CCD77003F9D2B /* JRCustomSizeLayout.swift */; };
-		DA297103248CCD77003F9D2B /* JRCollectionViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */; };
 		DA297104248CCD77003F9D2B /* JRCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */; };
 		DA297105248CCD77003F9D2B /* JRCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */; };
 		DA297106248CCD77003F9D2B /* JRCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */; };
@@ -51,7 +50,6 @@
 		DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionReusableView.swift; sourceTree = "<group>"; };
 		DA2970FB248CCD77003F9D2B /* JRCustomSizeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCustomSizeLayout.swift; sourceTree = "<group>"; };
-		DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewEvent.swift; sourceTree = "<group>"; };
 		DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewManager.swift; sourceTree = "<group>"; };
 		DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewItem.swift; sourceTree = "<group>"; };
 		DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRCollectionViewSection.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			children = (
 				DA2970F9248CCD77003F9D2B /* JRCollectionReusableView.swift */,
 				DA297100248CCD77003F9D2B /* JRCollectionViewCell.swift */,
-				DA2970FC248CCD77003F9D2B /* JRCollectionViewEvent.swift */,
 				DA2970FE248CCD77003F9D2B /* JRCollectionViewItem.swift */,
 				DA2970FD248CCD77003F9D2B /* JRCollectionViewManager.swift */,
 				DA2970FF248CCD77003F9D2B /* JRCollectionViewSection.swift */,
@@ -249,7 +246,6 @@
 				DA29709D248CC717003F9D2B /* SceneDelegate.swift in Sources */,
 				DA2970F3248CCAD6003F9D2B /* JRTableViewCell.swift in Sources */,
 				DA2970CE248CC806003F9D2B /* UIView+Util.swift in Sources */,
-				DA297103248CCD77003F9D2B /* JRCollectionViewEvent.swift in Sources */,
 				DA297107248CCD77003F9D2B /* JRCollectionViewCell.swift in Sources */,
 				DA2970F4248CCAD6003F9D2B /* JRTableViewItem.swift in Sources */,
 				DA2970E9248CCAD6003F9D2B /* JRPopUpView.swift in Sources */,
