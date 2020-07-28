@@ -1,18 +1,16 @@
 import UIKit
 
 open class JRTableViewCell: UITableViewCell {
-    public var item: JRTableViewItem!
+//    public var cellItem: JRTableViewItem!
 
     open override func awakeFromNib() {
         super.awakeFromNib()
         defaultSet()
-        setupConfig()
     }
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         defaultSet()
-        setupConfig()
     }
     
     required public init?(coder: NSCoder) {
@@ -34,7 +32,11 @@ open class JRTableViewCell: UITableViewCell {
     
     open func didSelect() {}
     
-    open func performCellEvent(_ event: TableEvent, msg: Any? = nil) {
-        item.tableViewManager.performCellEvent(event, item: item, msg: msg)
-    }
+    open func didHighlight() {}
+
+    open func didUnhighlight() {}
+    
+//    open func performCellEvent(_ event: JRTableViewEvent, msg: Any? = nil) {
+//        cellItem.tableViewManager.performCellEvent(event, item: cellItem, msg: msg)
+//    }
 }

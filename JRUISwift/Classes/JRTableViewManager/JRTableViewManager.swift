@@ -1,14 +1,11 @@
 import UIKit
-@objc public protocol JRTableViewDelegate: NSObjectProtocol {
-    @objc func scrollViewDidScroll(_ scrollView: UIScrollView)
-}
 
-public protocol TableEvent {
+public protocol JRTableViewEvent {
     func getName() -> String
 }
 
 open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-    public weak var delegate: JRTableViewDelegate?
+    public weak var scrollDelegate: JRTableViewScrollDelegate?
     public var tableView: UITableView!
     public var sections: [JRTableViewSection] = []
     var defaultTableViewSectionHeight: CGFloat {
@@ -105,7 +102,7 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
         }
         
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerItem.cellIdentifier) as! JRTableViewHeaderFooterView
-        view.item = headerItem
+        view.cellItem = headerItem
         
         return view
     }
@@ -126,7 +123,7 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
         }
         
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerItem.cellIdentifier) as! JRTableViewHeaderFooterView
-        view.item = footerItem
+        view.cellItem = footerItem
         
         return view
     }
@@ -150,6 +147,12 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let currentSection = sections[indexPath.section]
         let item = currentSection.items[indexPath.row]
+        
+        if item.cellHeight == UITableView.automaticDimension, tableView.estimatedRowHeight == 0 {
+            tableView.estimatedRowHeight = 44
+            tableView.estimatedSectionFooterHeight = 44
+            tableView.estimatedSectionHeaderHeight = 44
+        }
 
         return item.cellHeight
     }
@@ -159,16 +162,22 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
         let item = currentSection.items[indexPath.row]
         item.tableViewManager = self
         // 报错在这里，可能是是没有register cell
-        var cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier) as? JRTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier) as? JRTableBaseCellProtocol
         
         if cell == nil {
-            cell = JRTableViewCell(style: item.cellStyle, reuseIdentifier: item.cellIdentifier)
+            cell = (JRTableViewCell(style: item.cellStyle, reuseIdentifier: item.cellIdentifier) as! JRTableBaseCellProtocol)
         }
 
-        cell?.selectionStyle = item.selectionStyle
-        
-        cell?.item = item
-        cell?.update()
+//        cell?.selectionStyle = item.selectionStyle
+//
+//        cell?.cellItem = item
+//
+//        if item.finishInit == false {
+//            cell?.setupConfig()
+//            item.finishInit = true
+//        }
+//
+//        cell?.update()
         
         return cell!
     }
@@ -179,6 +188,16 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
     
     public func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt _: IndexPath) {
         (cell as! JRTableViewCell).didAppear()
+    }
+    
+    public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! JRTableViewCell
+        cell.didHighlight()
+    }
+    
+    public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! JRTableViewCell
+        cell.didUnhighlight()
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -203,14 +222,6 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
         if editingStyle == .delete {
             if let handler = item?.deletionHandler {
                 handler(item!)
-            }
-        }
-    }
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let d = delegate {
-            if d.responds(to: #selector(JRTableViewDelegate.scrollViewDidScroll(_:))) {
-                d.scrollViewDidScroll(scrollView)
             }
         }
     }
@@ -262,19 +273,19 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
     }
     
     
-    public func registerCellEvent(_ event: TableEvent, callback: @escaping (JRTableViewItem, Any?)->(Void)) {
+    public func registerCellEvent(_ event: JRTableViewEvent, callback: @escaping (JRTableViewItem, Any?)->(Void)) {
         cellEventDic[event.getName()] = callback
     }
     
-    public func performCellEvent(_ event: TableEvent, item: JRTableViewItem, msg: Any? = nil) {
+    public func performCellEvent(_ event: JRTableViewEvent, item: JRTableViewItem, msg: Any? = nil) {
         cellEventDic[event.getName()]?(item, msg)
     }
     
-    public func registerHeaderFooterEvent(_ event: TableEvent, callback: @escaping (JRTableViewHeaderFooterItem, Any?)->(Void)) {
+    public func registerHeaderFooterEvent(_ event: JRTableViewEvent, callback: @escaping (JRTableViewHeaderFooterItem, Any?)->(Void)) {
         headerFooterEventDic[event.getName()] = callback
     }
     
-    public func performHeaderFooterEvent(_ event: TableEvent, item: JRTableViewHeaderFooterItem, msg: Any? = nil) {
+    public func performHeaderFooterEvent(_ event: JRTableViewEvent, item: JRTableViewHeaderFooterItem, msg: Any? = nil) {
         headerFooterEventDic[event.getName()]?(item, msg)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 open class JRTableViewHeaderFooterView: UITableViewHeaderFooterView {
-    public var item: JRTableViewHeaderFooterItem!
+    public var cellItem: JRTableViewHeaderFooterItem!
 
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +28,8 @@ open class JRTableViewHeaderFooterView: UITableViewHeaderFooterView {
     open func setupConfig() { }
     open func update() {}
     
-    open func performHeaderFooterEvent(_ event: TableEvent, msg: Any? = nil) {
-        item.tableViewManager.performHeaderFooterEvent(event, item: item, msg: msg)
+    open func performHeaderFooterEvent(_ event: JRTableViewEvent, msg: Any? = nil) {
+        cellItem.tableViewManager.performHeaderFooterEvent(event, item: cellItem, msg: msg)
     }
     
 }

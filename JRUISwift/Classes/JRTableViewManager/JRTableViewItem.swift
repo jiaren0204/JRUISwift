@@ -5,6 +5,7 @@ open class JRTableViewItem: NSObject {
     public weak var tableViewManager: JRTableViewManager!
     public weak var section: JRTableViewSection!
     public var cellIdentifier: String!
+    public var finishInit = false
 
     /// cell高度(如果要自动计算高度，使用autoHeight(manager)方法，框架会算出高度，具体看demo)
     /// 传UITableViewAutomaticDimension则是系统实时计算高度，可能会有卡顿、reload弹跳等问题，不建议使用，有特殊需要可以选择使用
@@ -87,20 +88,17 @@ open class JRTableViewItem: NSObject {
     ///   - manager: 当前tableview的manager
     public func autoHeight(_ manager: JRTableViewManager) {
         tableViewManager = manager
-        let cell = manager.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? JRTableViewCell
-        if cell == nil {
+        guard let cell = manager.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? JRTableBaseCellProtocol else {
             print("please register cell")
-        } else {
-            cell?.item = self
-            cellHeight = systemFittingHeightForConfiguratedCell(cell!)
+            return
         }
+        
+        cell._item = self
+        cell.update()
+        cellHeight = cell.systemLayoutSizeFitting(CGSize(width: tableViewManager.tableView.frame.width, height: 0), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel).height
     }
 
-    public func systemFittingHeightForConfiguratedCell(_ cell: JRTableViewCell) -> CGFloat {
-        cell.update()
-        let height = cell.systemLayoutSizeFitting(CGSize(width: tableViewManager.tableView.frame.width, height: 0), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel).height
-        return height
-    }
+
     
     public func map<T: JRTableViewItem>(_ type: T.Type) -> T {
         self as! T

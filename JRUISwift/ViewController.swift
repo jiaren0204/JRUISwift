@@ -7,30 +7,30 @@
 //
 
 import UIKit
-
-class CC {
-    
-}
+import Then
+import SnapKit
 
 class ViewController: UIViewController {
+
+    private lazy var tableView = UITableView(frame: .zero, style: .plain).then {
+        $0.backgroundColor = .red
+        view.addSubview($0)
+        $0.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+    }
     
-    private var sysEventDic = [UnsafeMutableRawPointer: String]()
+    private var tableMgr: JRTableViewManager!
+    private let section = JRTableViewSection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let c = CC();
-        
-        let key = Unmanaged.passUnretained(c).toOpaque()
-        sysEventDic[key] = "1"
-        
-//        print(Unmanaged.passUnretained(c).toOpaque())
-        
-        sysEventDic.forEach { (key, value) in
-            print(value)
-        }
-        
 
+        tableMgr = JRTableViewManager(tableView: tableView, cellClasses: [CellA.self])
+        tableMgr.add(section: section)
+        
+        section.add(item: CellAItem(page: 3))
+        tableMgr.reload()
     }
 
 

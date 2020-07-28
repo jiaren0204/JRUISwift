@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04562BBE24CE8366000E04AF /* CellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04562BBD24CE8366000E04AF /* CellA.swift */; };
+		04562BC024CE8534000E04AF /* JRTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04562BBF24CE8534000E04AF /* JRTableViewProtocol.swift */; };
+		907E32C424D962ECF63BC2C2 /* Pods_JRUISwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13FBA5B901BC8155068E17D7 /* Pods_JRUISwift.framework */; };
 		DA29709B248CC717003F9D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709A248CC717003F9D2B /* AppDelegate.swift */; };
 		DA29709D248CC717003F9D2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709C248CC717003F9D2B /* SceneDelegate.swift */; };
 		DA29709F248CC717003F9D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29709E248CC717003F9D2B /* ViewController.swift */; };
@@ -31,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04562BBD24CE8366000E04AF /* CellA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellA.swift; sourceTree = "<group>"; };
+		04562BBF24CE8534000E04AF /* JRTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRTableViewProtocol.swift; sourceTree = "<group>"; };
+		13FBA5B901BC8155068E17D7 /* Pods_JRUISwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JRUISwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2535D51E1EF3E0E121D6D5D0 /* Pods-JRUISwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRUISwift.debug.xcconfig"; path = "Target Support Files/Pods-JRUISwift/Pods-JRUISwift.debug.xcconfig"; sourceTree = "<group>"; };
+		C9BD7D59DCBF06F96E9539DF /* Pods-JRUISwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRUISwift.release.xcconfig"; path = "Target Support Files/Pods-JRUISwift/Pods-JRUISwift.release.xcconfig"; sourceTree = "<group>"; };
 		DA297097248CC717003F9D2B /* JRUISwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JRUISwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA29709A248CC717003F9D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA29709C248CC717003F9D2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907E32C424D962ECF63BC2C2 /* Pods_JRUISwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F328F57A04304012B1CF15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2535D51E1EF3E0E121D6D5D0 /* Pods-JRUISwift.debug.xcconfig */,
+				C9BD7D59DCBF06F96E9539DF /* Pods-JRUISwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3BE83E9BAC130BAD137D4714 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13FBA5B901BC8155068E17D7 /* Pods_JRUISwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA29708E248CC717003F9D2B = {
 			isa = PBXGroup;
 			children = (
 				DA297099248CC717003F9D2B /* JRUISwift */,
 				DA297098248CC717003F9D2B /* Products */,
+				12F328F57A04304012B1CF15 /* Pods */,
+				3BE83E9BAC130BAD137D4714 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +118,7 @@
 				DA29709A248CC717003F9D2B /* AppDelegate.swift */,
 				DA29709C248CC717003F9D2B /* SceneDelegate.swift */,
 				DA29709E248CC717003F9D2B /* ViewController.swift */,
+				04562BBD24CE8366000E04AF /* CellA.swift */,
 				DA2970A0248CC717003F9D2B /* Main.storyboard */,
 				DA2970A3248CC71D003F9D2B /* Assets.xcassets */,
 				DA2970A5248CC71D003F9D2B /* LaunchScreen.storyboard */,
@@ -129,6 +158,7 @@
 		DA2970E2248CCAD6003F9D2B /* JRTableViewManager */ = {
 			isa = PBXGroup;
 			children = (
+				04562BBF24CE8534000E04AF /* JRTableViewProtocol.swift */,
 				DA2970E4248CCAD6003F9D2B /* JRTableViewCell.swift */,
 				DA2970E6248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift */,
 				DA2970E8248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift */,
@@ -167,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA2970AB248CC71D003F9D2B /* Build configuration list for PBXNativeTarget "JRUISwift" */;
 			buildPhases = (
+				20523D4AB0477AD6F6EBAEEB /* [CP] Check Pods Manifest.lock */,
 				DA297093248CC717003F9D2B /* Sources */,
 				DA297094248CC717003F9D2B /* Frameworks */,
 				DA297095248CC717003F9D2B /* Resources */,
+				0DACC652B5B70BF0B9BAD879 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +258,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DACC652B5B70BF0B9BAD879 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JRUISwift/Pods-JRUISwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JRUISwift/Pods-JRUISwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JRUISwift/Pods-JRUISwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20523D4AB0477AD6F6EBAEEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JRUISwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA297093248CC717003F9D2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -241,12 +315,14 @@
 				DA2970F7248CCAD6003F9D2B /* JRTableViewHeaderFooterView.swift in Sources */,
 				DA297104248CCD77003F9D2B /* JRCollectionViewManager.swift in Sources */,
 				DA2970F5248CCAD6003F9D2B /* JRTableViewHeaderFooterItem.swift in Sources */,
+				04562BBE24CE8366000E04AF /* CellA.swift in Sources */,
 				DA2970F6248CCAD6003F9D2B /* JRTableViewManager.swift in Sources */,
 				DA297101248CCD77003F9D2B /* JRCollectionReusableView.swift in Sources */,
 				DA29709D248CC717003F9D2B /* SceneDelegate.swift in Sources */,
 				DA2970F3248CCAD6003F9D2B /* JRTableViewCell.swift in Sources */,
 				DA2970CE248CC806003F9D2B /* UIView+Util.swift in Sources */,
 				DA297107248CCD77003F9D2B /* JRCollectionViewCell.swift in Sources */,
+				04562BC024CE8534000E04AF /* JRTableViewProtocol.swift in Sources */,
 				DA2970F4248CCAD6003F9D2B /* JRTableViewItem.swift in Sources */,
 				DA2970E9248CCAD6003F9D2B /* JRPopUpView.swift in Sources */,
 			);
@@ -390,6 +466,7 @@
 		};
 		DA2970AC248CC71D003F9D2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2535D51E1EF3E0E121D6D5D0 /* Pods-JRUISwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +485,7 @@
 		};
 		DA2970AD248CC71D003F9D2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9BD7D59DCBF06F96E9539DF /* Pods-JRUISwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
