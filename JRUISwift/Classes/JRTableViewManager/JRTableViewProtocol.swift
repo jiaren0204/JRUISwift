@@ -12,9 +12,26 @@ import UIKit
 public protocol JRTableItemProtocol where Self: JRTableViewItem {}
 extension JRTableViewItem: JRTableItemProtocol {}
 
-
-public protocol JRTableBaseCellProtocol where Self: JRTableViewCell {
+public protocol JRTableBaseCellProtocol where Self: UITableViewCell {
     var _item: JRTableItemProtocol? { get set }
+    
+    func setupConfig()
+    func update()
+    func didAppear()
+    func didDisappear()
+    func didSelect()
+    func didHighlight()
+    func didUnhighlight()
+}
+
+public extension JRTableBaseCellProtocol {
+    func setupConfig() {}
+    func update() {}
+    func didAppear() {}
+    func didDisappear() {}
+    func didSelect() {}
+    func didHighlight() {}
+    func didUnhighlight() {}
 }
 
 public protocol JRTableCellProtocol: JRTableBaseCellProtocol {
@@ -22,18 +39,15 @@ public protocol JRTableCellProtocol: JRTableBaseCellProtocol {
     var item: T! { get set }
 }
 
-extension JRTableCellProtocol {
+public extension JRTableCellProtocol {
+    
     var _item: JRTableItemProtocol? {
-        get {
-            item
-        }
+        get { item }
         set {
             item = (newValue as! Self.T)
         }
     }
 }
-
-
 
 
 // MARK: - JRTableViewScrollDelegate

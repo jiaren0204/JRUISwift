@@ -165,38 +165,38 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
         var cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier) as? JRTableBaseCellProtocol
         
         if cell == nil {
-            cell = (JRTableViewCell(style: item.cellStyle, reuseIdentifier: item.cellIdentifier) as! JRTableBaseCellProtocol)
+            cell = (JRTableViewCell(style: item.cellStyle, reuseIdentifier: item.cellIdentifier) as JRTableBaseCellProtocol)
+            cell?.backgroundColor = .clear
         }
 
-//        cell?.selectionStyle = item.selectionStyle
-//
-//        cell?.cellItem = item
-//
-//        if item.finishInit == false {
-//            cell?.setupConfig()
-//            item.finishInit = true
-//        }
-//
-//        cell?.update()
+        cell?.selectionStyle = item.selectionStyle
+        cell?._item = item
+
+        if item.finishInit == false {
+            cell?.setupConfig()
+            item.finishInit = true
+        }
+
+        cell?.update()
         
         return cell!
     }
     
     public func tableView(_: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt _: IndexPath) {
-        (cell as! JRTableViewCell).didDisappear()
+        (cell as! JRTableBaseCellProtocol).didDisappear()
     }
     
     public func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt _: IndexPath) {
-        (cell as! JRTableViewCell).didAppear()
+        (cell as! JRTableBaseCellProtocol).didAppear()
     }
     
     public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! JRTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! JRTableBaseCellProtocol
         cell.didHighlight()
     }
     
     public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! JRTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! JRTableBaseCellProtocol
         cell.didUnhighlight()
     }
     
@@ -207,7 +207,7 @@ open class JRTableViewManager: NSObject, UITableViewDelegate, UITableViewDataSou
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        let cell = tableView.cellForRow(at: indexPath) as! JRTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! JRTableBaseCellProtocol
         cell.didSelect()
     }
     

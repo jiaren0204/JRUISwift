@@ -83,12 +83,8 @@ open class JRTableViewItem: NSObject {
     }
 
     /// 计算cell高度
-    ///
-    /// - Parameters:
-    ///   - manager: 当前tableview的manager
-    public func autoHeight(_ manager: JRTableViewManager) {
-        tableViewManager = manager
-        guard let cell = manager.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? JRTableBaseCellProtocol else {
+    public func autoHeight() {
+        guard let cell = tableViewManager.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? JRTableBaseCellProtocol else {
             print("please register cell")
             return
         }
@@ -98,12 +94,10 @@ open class JRTableViewItem: NSObject {
         cellHeight = cell.systemLayoutSizeFitting(CGSize(width: tableViewManager.tableView.frame.width, height: 0), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel).height
     }
 
-
-    
-    public func map<T: JRTableViewItem>(_ type: T.Type) -> T {
-        self as! T
+    public func performCellEvent(_ event: JRTableViewEvent, msg: Any? = nil) {
+        tableViewManager.performCellEvent(event, item: self, msg: msg)
     }
-    
+
     public func setupConfig() {}
     
     public func calculate() {}

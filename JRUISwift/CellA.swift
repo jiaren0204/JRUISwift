@@ -21,11 +21,11 @@ class CellAItem: JRTableViewItem {
 
 class CellA: JRTableViewCell {
 
-    override func setupConfig() {
-        backgroundColor = .cyan
-    }
-    
-    override func update() {
-        
-    }
+//    override func setupConfig() {
+//        backgroundColor = .cyan
+//    }
+//
+//    override func update() {
+//
+//    }
 }
